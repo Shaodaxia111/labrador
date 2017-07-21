@@ -126,6 +126,10 @@ module.exports = function createPage(ComponentClass: Class<Component>) {
     }
   };
 
+  let pageRoot = new ComponentClass({});
+
+  config.method = pageRoot;
+
   config.onReady = function () {
     page._ready = true;
     utils.callLifecycle(this.root, 'onReady');
