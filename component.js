@@ -111,11 +111,11 @@ export default class Component {
         if (!utils.shouldUpdate(state, item)) {
           // 如果没有发生变化，则忽略更新，优化性能
           if (__DEV__) {
-            console.log('%c%s setState(%o) ignored',
-              'color:#fcc',
-              this.id,
-              utils.getDebugObject(item)
-            );
+            // console.log('%c%s setState(%o) ignored',
+            //   'color:#fcc',
+            //   this.id,
+            //   utils.getDebugObject(item)
+            // );
           }
           return;
         }
@@ -127,12 +127,12 @@ export default class Component {
           let original = utils.getDebugObject(state);
           let append = utils.getDebugObject(item);
           state = Object.assign({}, state, item);
-          console.log('%c%s setState(%o) : %o -> %o Component:%o',
-            'color:#2a8f99',
-            this.id, append, original,
-            utils.getDebugObject(state),
-            this
-          );
+          // console.log('%c%s setState(%o) : %o -> %o Component:%o',
+          //   'color:#2a8f99',
+          //   this.id, append, original,
+          //   utils.getDebugObject(state),
+          //   this
+          // );
         } else {
           state = Object.assign({}, state, item);
         }
@@ -164,7 +164,7 @@ export default class Component {
       if (this.data) {
         console.error(this.id + ' Component data属性和 setData方法已经废弃,请使用state 和 setState代替');
       }
-      console.log('%c%s init %o', 'color:#9a23cc', this.id, this);
+      // console.log('%c%s init %o', 'color:#9a23cc', this.id, this);
     }
     // console.log(this.path + '#init', this);
     if (!this.state) {
@@ -288,7 +288,7 @@ export default class Component {
     // 性能优化，当children返回的配置发生变化后才真正更新子控件
     if (!deepEqual(configs, this._childrenConfigs)) {
       if (__DEV__) {
-        console.log('%c%s %s -> %o', 'color:#9a23cc', this.id, 'children()', configs);
+        // console.log('%c%s %s -> %o', 'color:#9a23cc', this.id, 'children()', configs);
       }
       // 遍历子组件配置列表
       Object.keys(configs).forEach((key) => {
@@ -389,12 +389,12 @@ export default class Component {
             // Development
             let original = utils.getDebugObject(component.props);
             component.onUpdate(nextProps);
-            console.log('%c%s onUpdate(%o) -> %o Component:%o',
-              'color:#2a8f99',
-              this.id, original,
-              utils.getDebugObject(component.props),
-              component
-            );
+            // console.log('%c%s onUpdate(%o) -> %o Component:%o',
+            //   'color:#2a8f99',
+            //   this.id, original,
+            //   utils.getDebugObject(component.props),
+            //   component
+            // );
           } else {
             component.onUpdate(nextProps);
           }

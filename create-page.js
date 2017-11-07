@@ -67,7 +67,7 @@ module.exports = function createPage(ComponentClass: Class<Component>) {
     if (com[handler]) {
       if (__DEV__) {
         // $Flow
-        console.log('%c%s %s(%o)', 'color:#2abb40', com.id, handler, event);
+        // console.log('%c%s %s(%o)', 'color:#2abb40', com.id, handler, event);
       }
       return com[handler](event);
     }
@@ -76,7 +76,7 @@ module.exports = function createPage(ComponentClass: Class<Component>) {
     return undefined;
   };
 
-  ['onRouteEnd', 'onUnload', 'onPullDownRefresh', 'onReachBottom'].forEach(function (name) {
+  ['onRouteEnd', 'onUnload','onPageScroll', 'onPullDownRefresh', 'onReachBottom'].forEach(function (name) {
     config[name] = function (...args) {
       utils.callLifecycle(this.root, name, args);
     };
